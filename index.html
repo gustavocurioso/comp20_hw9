@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <Title>HW9</Title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    </head>
+    <body>
+        <script language="javascript">
+            	songs = [
+                {
+        			"Title": "Another One Bites The Dust",
+        			"Artist": "Queen",
+        			"Genre": "Rock",
+        			"Year": "1980"
+        		},
+        		{
+        			"Title": "Don't Look Back In Anger",
+        			"Artist": "Oasis",
+        			"Genre": "Rock",
+        			"Year": "1995"
+        		},
+        		{
+        			"Title": "Toxic",
+        			"Artist": "Britney Spears",
+        			"Genre": "Pop",
+        			"Year": "2003"
+        		},
+        		{
+        			"Title": "Four Seasons",
+        			"Artist": "Vivaldi",
+        			"Genre": "Classical",
+        			"Year": "1725"
+        		},
+        		{
+        			"Title": "Dani California",
+        			"Artist": "Red Hot Chili Peppers",
+        			"Genre": "Rock",
+        			"Year": "2006"
+        		},
+        		{
+        			"Title": "Jesus of Suburbia",
+        			"Artist": "Green Day",
+        			"Genre": "Punk Rock",
+        			"Year": "2004"
+        		},
+        		{
+        			"Title": "Holiday",
+        			"Artist": "Green Day",
+        			"Genre": "Punk Rock",
+        			"Year": "2004"
+        		},
+        		{
+        			"Title": "Tainted Love",
+        			"Artist": "Soft Cell",
+        			"Genre": "Synthpop",
+        			"Year": "1981"
+        		},
+        		{
+        			"Title": "Animals",
+        			"Artist": "Martin Garrix",
+        			"Genre": "EDM",
+        			"Year": "2013"
+        		},
+        		{
+        			"Title": "Hey There Delilah",
+        			"Artist": "Plain White T's",
+        			"Genre": "Indie",
+        			"Year": "2005"
+        		}];
+
+        document.write("<form><select onchange=\"genreChange()\" id=\"drop\">");
+        document.write("<option value=\"All\">All</option>");
+        document.write("<option value=\"Rock\">Rock</option>");
+        document.write("<option value=\"Pop\">Pop</option>");
+        document.write("<option value=\"Classical\">Classical</option>");
+        document.write("<option value=\"Punk Rock\">Punk Rock</option>");
+        document.write("<option value=\"Synthpop\">Synthpop</option>");
+        document.write("<option value=\"EDM\">EDM</option>");
+        document.write("<option value=\"Indie\">Indie</option>");
+        document.write("</select></form><br>");
+
+        document.write("<div id=\"song_display\">");
+        for (i = 0; i < 10; i++) {
+            document.write("<b>" + songs[i]["Title"] + "</b><br>");
+            document.write("Artist: " + songs[i]["Artist"] + "<br>");
+            document.write("Genre: " + songs[i]["Genre"] + "<br>");
+            document.write("Released: " + songs[i]["Year"] + "<br><br>");
+        }
+        document.write("</div>");
+
+        function genreChange() {
+            var drop_value = $("#drop").val();
+            replace = "";
+            if (drop_value == "All") {
+                for (i = 0; i < 10; i++) {
+                    replace += "<b>" + songs[i]["Title"] + "</b><br>";
+                    replace += "Artist: " + songs[i]["Artist"] + "<br>";
+                    replace += "Genre: " + songs[i]["Genre"] + "<br>";
+                    replace += "Released: " + songs[i]["Year"] + "<br><br>";
+                }
+            }
+            else {
+                for (i = 0; i < 10; i++) {
+                    if (drop_value == songs[i]["Genre"]) {
+                        replace += "<b>" + songs[i]["Title"] + "</b><br>";
+                        replace += "Artist: " + songs[i]["Artist"] + "<br>";
+                        replace += "Genre: " + songs[i]["Genre"] + "<br>";
+                        replace += "Released: " + songs[i]["Year"] + "<br><br>";
+                    }
+                }
+            }
+            document.getElementById("song_display").innerHTML = replace;
+        }
+        </script>
+    </body>
+</html>
+
+
+<!--
+
+
+-->
